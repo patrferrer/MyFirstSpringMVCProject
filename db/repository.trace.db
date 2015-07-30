@@ -1,0 +1,12 @@
+07-28 11:41:04 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PERSON" no encontrada
+Table "PERSON" not found; SQL statement:
+select person0_.id as id1_0_, person0_.country as country2_0_, person0_.name as name3_0_ from PERSON person0_ [42102-187]
+07-28 11:52:29 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PERSON" no encontrada
+Table "PERSON" not found; SQL statement:
+select person0_.id as id1_0_, person0_.country as country2_0_, person0_.name as name3_0_ from PERSON person0_ [42102-187]
+07-28 11:52:35 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PERSON" no encontrada
+Table "PERSON" not found; SQL statement:
+select person0_.id as id1_0_, person0_.country as country2_0_, person0_.name as name3_0_ from PERSON person0_ [42102-187]
