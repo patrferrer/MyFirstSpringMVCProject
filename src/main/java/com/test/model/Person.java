@@ -7,12 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
  
-/**
- * Entity bean with JPA annotations
- * Hibernate provides JPA implementation
- * @author pankaj
- *
- */
 @Entity
 @Table(name="PERSON")
 public class Person {
@@ -52,6 +46,6 @@ public class Person {
      
     @Override
     public String toString(){
-        return "id="+id+", name="+name+", country="+country;
+        return "{id:"+id+", name:"+name+", country:"+country+"}";
     }
 }

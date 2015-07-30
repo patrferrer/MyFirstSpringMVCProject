@@ -34,7 +34,7 @@ public class PersonRestController {
 	public ResponseEntity<?> personForm(@PathVariable int id) {
 		Person person = personService.getPersonById(id);
 		System.out.println(person);
-		return new ResponseEntity<>(person, null, HttpStatus.FOUND);
+		return new ResponseEntity<>(person.toString(), null, HttpStatus.FOUND);
 	}
 
 	@RequestMapping(value = "/api/person", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
