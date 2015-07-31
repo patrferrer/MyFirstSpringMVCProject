@@ -6,9 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
  
 @Entity
 @Table(name="PERSON")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.NONE) 
 public class Person {
  
     @Id
@@ -19,7 +23,8 @@ public class Person {
     private String name;
      
     private String country;
- 
+    
+    @JsonProperty
     public int getId() {
         return id;
     }
@@ -28,6 +33,7 @@ public class Person {
         this.id = id;
     }
  
+    @JsonProperty
     public String getName() {
         return name;
     }
@@ -35,7 +41,8 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
- 
+    
+    @JsonProperty
     public String getCountry() {
         return country;
     }
@@ -46,6 +53,6 @@ public class Person {
      
     @Override
     public String toString(){
-        return "{id:"+id+", name:"+name+", country:"+country+"}";
+        return "[id="+id+", name="+name+", country="+country+"]";
     }
 }

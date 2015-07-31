@@ -2,23 +2,23 @@
 <beans:beans 
 	xmlns="http://www.springframework.org/schema/mvc"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:p="http://www.springframework.org/schema/p"
     xmlns:beans="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context" 
     xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/mvc 
-    	http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/beans 
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/tx 
-        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
  
     <!-- DispatcherServlet Context: defines this servlet's request-processing 
         infrastructure -->
  
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven />
+   
+    <annotation-driven content-negotiation-manager="contentNegotiationManager" />
     
     <context:component-scan base-package="com.test.controller" />
      
@@ -33,7 +33,18 @@
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
- 
+    
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
+ 	
+ 	<beans:bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
+ 		p:defaultContentType="application/json" p:favorPathExtension="true" p:useJaf="false">
+ 		<beans:property name="mediaTypes">
+ 			<beans:map>
+ 				<beans:entry key="json" value="application/json" />
+ 			</beans:map>
+ 		</beans:property>
+ 	</beans:bean>
+ 	
    <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <beans:property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
       <beans:property name="url" value="jdbc:jtds:sqlserver://localhost;databaseName=TestMVC" />
