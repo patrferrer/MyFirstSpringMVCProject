@@ -1,10 +1,9 @@
 # MyFirstSpringMVCProject
 My First Spring MVC Project
 
-#base de datos: TestMVC
-#usuario: bw_user
-#pass: dba
-#script para la tabla
+base de datos: TestMVC
+usuario: bw_user
+pass: dba
 
 CREATE TABLE Person (
   id int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
